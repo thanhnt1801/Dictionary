@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="~/css/homenew.css">
+</head>
+<body>
+    <div class="banner">
+        <div class="content">
+            <h1>Từ Điển Đa Ngôn Ngữ</h1>
+            <p>Từ điển đa ngôn ngữ mang đến cho người dùng thông tin của hàng loạt từ ngữ đến từ nhiều ngôn ngữ khác 
+                .<br> Bắt đầu tra từ của bạn !!! </p>
+            <div class="bannerButton">
+                <a type="button" asp-action="Index" asp-controller="Dictionary" ><span></span>Từ điển</a>
+                <a type="button" asp-action="Translate" asp-controller="Dictionary"><span></span>Dịch từ</a>
+            </div>
+        </div>
+    </div> 
+</body>
+</html>

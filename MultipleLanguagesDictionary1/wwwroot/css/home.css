@@ -1,0 +1,264 @@
+.text-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: left !important;
+
+}
+p{  
+    margin-bottom: -1rem;
+    color: black;
+}
+
+.dictionaryWrapper{
+    margin-top: 30px;
+    font-family: 'Dongle', sans-serif;
+    font-size: 25px;
+    background-color: wheat;
+    border-radius: 7px;
+    width: 10000px;
+    align-content: center;
+    padding: 28px 28px 45px;
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.05);
+}
+
+.dictionaryWrapper h1{
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.dictionaryWrapper h2{
+    font-size: 40px;
+    font-weight: 500;
+    text-align: left;
+    color: #989898;
+}
+
+.dictionaryWrapper .search {
+    margin: 35px 0 18px;
+    position: relative;
+    
+}
+
+.search input{
+    height: 53px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 0 42px; 
+}
+
+.search input:focus{
+    border: 2px solid #a56821;
+}
+
+.search input:focus ~ i{
+    color: #a56821;
+}
+
+.search input::placeholder{
+    color: #b8b8b8;
+}
+
+.search :where(i,span){
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color:#999;
+}
+
+.search i{
+    left: 280px;
+    pointer-events: none;
+    font-size: 20px;
+}
+
+.search span{
+    right : 580px;
+    cursor: pointer;
+    font-size: 18px;
+    display: none;
+}
+
+.search input:valid ~ span{
+    display: block;
+}
+
+
+.dictionaryWrapper .info-text{
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: -3px 0 -10px;
+}
+.dictionaryWrapper ul li{
+    display: flex;
+    padding-bottom: 17px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.dictionaryWrapper.active .info-text{
+    display: none;
+}
+
+.dictionaryWrapper.active ul{
+    height: 303px;
+    opacity: 1;
+}
+
+.dictionaryWrapper ul{
+   height: auto;
+   opacity: 100;
+   overflow: hidden;
+   transition: all 0.2s ease;
+}
+
+ul {
+    padding-left: 0rem !important;
+}
+ul li:last-child{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    border-bottom: 0px;
+}
+ul .dictionaryWord p{
+    font-size: 60px;
+    font-weight: 500;
+}
+
+ul .dictionaryWord span{
+    font-size: 40px;
+    color: #989898;
+}
+
+ul .dictionaryWord i{
+    cursor: pointer;
+    font-size: 15px;
+    color: #999;
+}
+
+ul .dictionaryContent{
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+ul .dictionaryContent::-webkit-scrollbar{
+    width: 0;
+}
+
+.dictionaryContent li .details{
+    border-left: 3px solid #a56821;
+    padding-left: 10px;
+    border-radius: 4px 0 0 4px;
+}
+
+.dictionaryContent p{
+    font-size: 40px;
+}
+
+.dictionaryContent li .details span{
+    font-size: 30px;
+    color: #7e7e7e;
+}
+
+
+.dictionaryContent .dictionarysynonyms .list{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .dictionaryContent .dictionarysynonyms span{
+    cursor: pointer;
+    margin-right: 5px;
+    text-decoration: underline;
+  } 
+
+#word {
+    text-transform: capitalize;
+}
+
+#exampleSelect1 {
+    margin-top: 2px;
+    padding-bottom: 8px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    margin-right: 50px;
+    transform:translateX(-170px);
+    font-size: 22px;
+}
+
+.searchBtn {
+    transform:translateX(-180px);
+    text-align: center;
+    width: 15%;
+    display: inline-flex;
+}
+
+.badge {
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 10px;
+}
+
+.card-text {
+    border-bottom: 2px solid #7e7e7e;
+}
+
+.card-title::first-letter {
+    text-transform: capitalize;
+}
+
+@media only screen and (max-width: 1002px) {
+    /* For Tablet phones: */
+    .searchBtn{
+      width: 100%;
+      flex-direction: column;
+      padding: 0 105px 0 175px;
+    }
+
+    .search i{
+        top:30%;
+        left:17%;
+    }
+
+    span.material-icons{
+        top: 20%
+    }
+    select#exampleSelect1{
+        margin-left: 170px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .search span{
+        right: 30%;
+        top:30%;
+    }
+  }
+  
+@media only screen and (max-width: 777px) {
+    /* For phones: */
+    .searchBtn{
+      width: 100%;
+      flex-direction: column;
+      margin: 0 70px 0 50px;
+    }
+
+    span.material-icons{
+        top: 18%
+    }
+
+    .search i{
+        top:18%;
+        left:5%;
+    }
+
+    .search span{
+        right: 10%;
+    }
+  }

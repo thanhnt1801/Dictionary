@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "DeleteDb";
+}
+
+<h1>@ViewData["Title"]</h1>
+<p class="alert alert-danger">
+    Do u really wanna delete?
+</p>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">
+        Delete Db
+    </button>
+
+    <hr>
+
+    <a asp-action="Index">Manage Db</a>
+</form>

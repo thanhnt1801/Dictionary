@@ -1,0 +1,74 @@
+.banner{
+    margin-top: 10px;
+    width: 133%;
+    height: 83vh;
+    background-image: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),url("https://images.unsplash.com/photo-1524639064490-254e0a1db723?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+    background-size: cover;
+    background-position: center;
+    border-radius: 7px;
+    border : 10px outset   #78C2AD;
+}
+
+.content{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-120%);
+    right: 260px;
+    color: #fff;
+    text-align: center;
+}
+
+.content h1{
+    font-family: 'Lora', serif;
+    font-size: 70px;
+    color: #78C2AD;
+}
+
+.content p{
+    font-family: 'Lora', serif;
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+}
+.container{
+    margin: 0;
+}
+
+
+/* Transition button */
+.bannerButton a{
+    font-family: 'Lora', serif;
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    border: 2px solid #009688;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.bannerButton span{
+    background: #009688;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.bannerButton a:hover span{
+    width: 100%;
+}
+
+.bannerButton a:hover {
+    border:none
+}
+

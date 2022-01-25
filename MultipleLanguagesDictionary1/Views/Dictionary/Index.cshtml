@@ -1,0 +1,109 @@
+@{
+    ViewData["Title"] = "Index";
+    var dictionaries = ViewBag.data;
+    var array = ViewBag.mean;
+    var countPart = ViewBag.countPart;
+    int i = 0;
+
+}
+<link rel="stylesheet" href="~/css/home.css">
+
+<body>
+    <div class="text-center">
+        <div class="dictionaryWrapper">
+            <h1>Tra từ điển</h1>
+            <form asp-action="Index" asp-controller="Dictionary" method="get">
+                <div class="row search">
+
+                    <div class="col-md-10 row">
+                        <div class="col-md-7 offset-md-3">
+                            <input type="text" placeholder="Search a word" required name="word" id="word">
+                            <i class="dictionaryIcon fas fa-search"></i>
+                            <span class="material-icons">close</span>
+                        </div>
+                        <div class="col-md-2">
+                            <select class="form-select" id="exampleSelect1" name="lang">
+                                <option value="en">ENG</option>
+                                <option value="fr">FRA</option>
+                                <option value="ja">JAP</option>
+                                <option value="it">ITA</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="searchBtn">
+                        <button type="submit" class="btn btn-success">Tìm kiếm</button>
+                    </div>
+                </div>
+            </form>
+            @if (ViewData["data"] == "null" && ViewData["mean"] == "null")
+            {
+                <div class="col-md-7 offset-md-3">
+                    <h2 class="info-text">Từ này không có trong từ điển, vui lòng tra từ khác!!</h2>
+                </div>
+            }
+            else if (ViewData["word"] == "null")
+            {
+                <div class="col-md-7 offset-md-3">
+                    <h2>Hãy tìm kiếm 1 từ bất kỳ !!</h2>
+                </div>
+            }
+            else
+            {
+                <ul>
+                    @foreach (var item in ViewBag.data)
+                    {
+
+                        if (i == 0)
+                        {
+                            <li class="dictionaryWord">
+                                <div class="dictionaryDetails">
+                                    <p id="word">@item.word <span>
+                                            @if (item.phonetic != null)
+                                            {
+                                                @("/" + item.phonetic + "/")
+                                            }
+                                        </span> </p>
+                                </div>
+                            </li>
+                            i++;
+                        }
+                    }
+                    <!-- Content - Definition  -->
+                <div class="dictionaryContent">
+                        @foreach (var arr in ViewBag.mean)
+                        {
+                            <div class="card text-white bg-danger mb-3" style="max-width: 100%;">
+                                <h5 class="card-header text-dark">@arr.partOfSpeech</h5>
+                                @foreach (var value in arr.definitions)
+                                {
+                                    <div class="card-body">
+                                        <h4 class="card-title">@value.definition</h4>
+                                        @if (value.example != null)
+                                        {
+                                            <p class="card-text">Example: @value.example</p>
+                                            <br>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                        }
+                        @if (ViewBag.countSyn > 1)
+                        {
+                            <hr>
+                            <br>
+                            <h4>Synonyms</h4>
+                            @foreach (var syn in ViewBag.syn)
+                            {
+                                <a asp-action="Index" asp-route-word="@syn" asp-route-lang="@ViewBag.lang"
+                        class="badge bg-success text-dark">@syn</a>
+                            }
+                        }
+                    </div>
+                </ul>
+            }
+        </div>
+
+    </div>
+
+</body>
+<script src="~/js/homeNew.js"></script>
